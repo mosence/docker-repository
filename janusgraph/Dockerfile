@@ -4,7 +4,7 @@ MAINTAINER CHANNEL IT SERVICES
 
 ENV JANUSGRAPH_VERSION=0.3.1
 RUN \
-	apt-get install unzip -y
+	apk add unzip -y
 RUN \
 	mkdir /home/janusgraph &&\
 	cd /home/janusgraph &&\
