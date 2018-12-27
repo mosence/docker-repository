@@ -8,8 +8,8 @@ RUN adduser janusgraph -D -S
 USER janusgraph
 WORKDIR /home/janusgraph
 RUN \
-	wget -q https://github.com/JanusGraph/janusgraph/releases/download/v$JANUSGRAPH_VERSION/janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip &&\
-	unzip janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip -q -d /home/janusgraph/ &&\
+	wget https://github.com/JanusGraph/janusgraph/releases/download/v$JANUSGRAPH_VERSION/janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip &&\
+	unzip janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip -d /home/janusgraph/ &&\
 	rm -f janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip
 WORKDIR /home/janusgraph/janusgraph-$JANUSGRAPH_VERSION-hadoop2
 EXPOSE 8182
