@@ -14,4 +14,4 @@ RUN \
 WORKDIR /home/janusgraph/janusgraph-$JANUSGRAPH_VERSION-hadoop2
 EXPOSE 8182
 CMD \
-	bin/janusgraph.sh -v start
+	/home/janusgraph/janusgraph-$JANUSGRAPH_VERSION-hadoop2/bin/janusgraph.sh -v start
