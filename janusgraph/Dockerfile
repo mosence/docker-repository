@@ -12,4 +12,4 @@ RUN \
 	rm -rf janusgraph-$JANUSGRAPH_VERSION-hadoop2
 EXPOSE 8182
 VOLUME ["/home/janusgraph/data"]
-CMD ["/bin/bash","-c","bin/janusgraph.sh -v start&&tailf log/*"]
+CMD bin/janusgraph.sh -v start && tailf log/*
