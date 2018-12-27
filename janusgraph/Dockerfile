@@ -1,8 +1,5 @@
 FROM openjdk:8-jdk-alpine3.8
-
-MAINTAINER CHANNEL IT SERVICES
-
-ENV JANUSGRAPH_VERSION=0.3.1
+ARG JANUSGRAPH_VERSION=0.3.1
 RUN apk add unzip -y
 RUN adduser janusgraph -D -S
 USER janusgraph
@@ -11,9 +8,7 @@ RUN \
 	wget https://github.com/JanusGraph/janusgraph/releases/download/v$JANUSGRAPH_VERSION/janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip &&\
 	unzip janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip -d /home/janusgraph/ &&\
 	rm -f janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip &&\
-	ls &&\
-	pwd
-WORKDIR /home/janusgraph/janusgraph-$JANUSGRAPH_VERSION-hadoop2
+	mv -f /home/janusgraph/janusgraph-$JANUSGRAPH_VERSION-hadoop2 /home/janusgraph
 EXPOSE 8182
-CMD \
-	/home/janusgraph/janusgraph-$JANUSGRAPH_VERSION-hadoop2/bin/janusgraph.sh -v start
+VOLUME ["/home/janusgraph/data"]
+CMD ["/bin/bash","-c","bin/janusgraph.sh -v start&&tailf log/*"]
