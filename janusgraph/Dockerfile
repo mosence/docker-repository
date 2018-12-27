@@ -10,7 +10,9 @@ WORKDIR /home/janusgraph
 RUN \
 	wget https://github.com/JanusGraph/janusgraph/releases/download/v$JANUSGRAPH_VERSION/janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip &&\
 	unzip janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip -d /home/janusgraph/ &&\
-	rm -f janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip
+	rm -f janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip &&\
+	ls &&\
+	pwd
 WORKDIR /home/janusgraph/janusgraph-$JANUSGRAPH_VERSION-hadoop2
 EXPOSE 8182
 CMD \
