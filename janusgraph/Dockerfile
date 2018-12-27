@@ -13,4 +13,4 @@ RUN \
 EXPOSE 8182
 VOLUME /home/janusgraph/data
 VOLUME /home/janusgraph/conf
-CMD /home/janusgraph/bin/janusgraph.sh -v start && tailf /home/janusgraph/log/*
+CMD /home/janusgraph/bin/janusgraph.sh -v start && tail -f /home/janusgraph/log/*
