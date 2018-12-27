@@ -3,10 +3,10 @@ FROM openjdk:8-jdk-alpine3.8
 MAINTAINER CHANNEL IT SERVICES
 
 ENV JANUSGRAPH_VERSION=0.3.1
+RUN apk add unzip -y
+RUN addgroup janusgraph &&\
+	adduser janusgraph -g janusgraph
 RUN \
-	apk add unzip -y &&\
-	addgroup janusgraph &&\
-	adduser janusgraph -g janusgraph &&\
 	su janusgraph &&\
 	mkdir /home/janusgraph &&\
 	cd /home/janusgraph &&\
