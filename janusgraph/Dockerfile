@@ -4,8 +4,7 @@ MAINTAINER CHANNEL IT SERVICES
 
 ENV JANUSGRAPH_VERSION=0.3.1
 RUN apk add unzip -y
-RUN addgroup janusgraph &&\
-	adduser janusgraph -g janusgraph
+RUN adduser janusgraph
 RUN \
 	su janusgraph &&\
 	mkdir /home/janusgraph &&\
