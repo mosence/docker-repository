@@ -8,7 +8,8 @@ RUN \
 	wget https://github.com/JanusGraph/janusgraph/releases/download/v$JANUSGRAPH_VERSION/janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip &&\
 	unzip janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip -d /home/janusgraph/ &&\
 	rm -f janusgraph-$JANUSGRAPH_VERSION-hadoop2.zip &&\
-	mv -f /home/janusgraph/janusgraph-$JANUSGRAPH_VERSION-hadoop2 /home/janusgraph
+	mv -f ./janusgraph-$JANUSGRAPH_VERSION-hadoop2/* ./ &&\
+	rm -rf janusgraph-$JANUSGRAPH_VERSION-hadoop2
 EXPOSE 8182
 VOLUME ["/home/janusgraph/data"]
 CMD ["/bin/bash","-c","bin/janusgraph.sh -v start&&tailf log/*"]
